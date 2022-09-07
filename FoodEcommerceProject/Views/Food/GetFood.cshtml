@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "GetFood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FoodEcommerceProject.Data.Models.Food
+@using (Html.BeginForm("UpdateFood","Food",FormMethod.Post))
+{
+    @Html.LabelFor(x=>x.FoodID)
+    @Html.TextBoxFor(x=>x.FoodID, new {@readonly="readonly",@class ="form-control"})
+    <br />
+
+    @Html.LabelFor(x=>x.Name)
+    @Html.TextBoxFor(x=>x.Name, new{@class = "form-control"})
+    <br />
+
+    @Html.LabelFor(x=>x.Price)
+    @Html.TextBoxFor(x=>x.Price, new{@class = "form-control"})
+    <br />
+
+    @Html.LabelFor(x=>x.ImageURL)
+    @Html.TextBoxFor(x=>x.ImageURL, new{@class = "form-control"})
+    <br />
+
+    @Html.LabelFor(x=>x.Stock)
+    @Html.TextBoxFor(x=>x.Stock, new{@class = "form-control"})
+    <br />
+
+    
+    @Html.Label("Category Name")
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v1,new {@class = "form-control"})
+    <br />
+
+     @Html.LabelFor(x=>x.Description)
+    @Html.TextAreaFor(x=>x.Description, new{@class = "form-control"})
+    <br />
+
+
+    <button href="~/Food/UpdateFood/" class="btn btn-warning">UPDATE</button>
+}

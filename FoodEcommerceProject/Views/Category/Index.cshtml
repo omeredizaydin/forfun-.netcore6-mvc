@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using FoodEcommerceProject.Data.Models;
+@model List<Category>
+
+<h1 style="text-align:center;" >Category List</h1>
+<br />
+
+<table  style="text-align:center;" class="table table-bordered">
+    <tr>
+        <th style="text-align:center;" >ID</th>
+        <th style="text-align:center;">Name</th>
+        <th style="text-align:center;">Status</th>
+        <th style="text-align:center;">Delete</th>
+        <th style="text-align:center;">Update</th>
+
+    </tr>
+    <tr>
+        @foreach(var x in Model)
+        {   
+            <tr>
+                <td>@x.CategoryID</td>
+                <td>@x.CategoryName</td>
+                <td>@x.Status</td>
+                <td><a href="~/Category/CategoryDelete/@x.CategoryID" class="btn btn-danger">Delete</a></td>
+                <td><a href="~/Category/CategoryGet/@x.CategoryID" class="btn btn-info">Update</a></td>
+            </tr>
+        }
+    </tr>
+
+</table>
+<a href="/Category/CategoryAdd/" class="btn btn-primary">New Category</a>
+
